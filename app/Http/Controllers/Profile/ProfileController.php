@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -45,18 +47,19 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit()
     {
-        //
+        $user = auth()->user();
+        return view('profile.edit', ['user'=> $user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user): RedirectResponse
+    public function update(ProfileRequest $request, User $user): RedirectResponse
     {
-        $user->update($request->all());
-        return redirect('/profile');
+        $user->update($request->validated());
+        return redirect('/profile')->with('success', 'Profile updated successfully.');
     }
 
     /**

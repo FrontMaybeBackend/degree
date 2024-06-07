@@ -5,10 +5,12 @@
 @endsection
 
 @section('content')
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/profile.scss', 'resources/js/app.js'])
     @include('layouts.status')
     <body>
-    <div>
-        <form action="{{route('profile.update', $user)}}" method="POST"
+    <div id="div-profile" >
+        <form id="profile-form" action="{{route('profile.update', $user)}}" method="POST"
               class="d-flex justify-content-center align-items-center flex-column">
             @method('put')
             @csrf

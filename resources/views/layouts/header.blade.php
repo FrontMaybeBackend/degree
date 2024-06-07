@@ -7,7 +7,9 @@
 <body>
 @section('header')
     <header class="d-flex justify-content-between">
+        <a href="{{ route('home') }}">
         <h1 class="text-white small p-4">Structural </h1>
+        </a>
         <h1 class="text-white small p-4">Balance</h1>
         <ul class="d-flex align-items-center text-white flex-row list-unstyled">
             @guest
@@ -20,7 +22,7 @@
             @endguest
             @auth
                     <li class="p-4">
-                        <a class="alert-link small text-white" href="{{route('profile', $user->id)}}"> Profil</a>
+                        <a class="alert-link small text-white" href="{{route('profile.edit', $user)}}"> Profil</a>
                     </li>
                     <li class="p-4">
                         <form method="POST" action="{{ route('logout')}}">
@@ -34,6 +36,7 @@
 @show
 
 <div class="container">
+    @include('layouts.status')
     @yield('content')
 </div>
 </body>

@@ -24,4 +24,5 @@ Route::get('/home',[HomeController::class,'index'])->name('home');
 Route::post('/logout',[LogoutController::class,'logout'])->name('logout');
 
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');
-Route::put('/profile/{id}',[ProfileController::class,'update'])->name('profile.update');
+Route::get('/profile/edit/{user}',[ProfileController::class,'edit'])->name('profile.edit');
+Route::put('/profile/{user}',[ProfileController::class,'update'])->name('profile.update');
