@@ -25,6 +25,9 @@
                         <a class="alert-link small text-white" href="{{route('profile.edit', $user)}}"> Profil</a>
                     </li>
                     <li class="p-4">
+                        <a class="alert-link small text-white" href="{{route('workout.create')}}"> Dziennik</a>
+                    </li>
+                    <li class="p-4">
                         <form method="POST" action="{{ route('logout')}}">
                             @csrf
                         <button type="submit" class="alert-link small btn btn-sm">Wyloguj</button>
