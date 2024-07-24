@@ -25,7 +25,7 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function workouts(): HasMany
+    public function workout(): HasMany
     {
         return $this->hasMany(Workout::class);
     }

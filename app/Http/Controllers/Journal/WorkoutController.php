@@ -3,18 +3,26 @@
 namespace App\Http\Controllers\Journal;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Workout;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class WorkoutController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Workout $workout)
     {
-        //
+        $user = auth()->user()->getAuthIdentifier();
+        return view('journal.index-workout', [
+            'workout' => $workout->getWorkoutForAuthUser($user),
+            'user' => $user
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.

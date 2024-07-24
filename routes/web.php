@@ -32,3 +32,4 @@ Route::put('/profile/{user}',[ProfileController::class,'update'])->name('profile
 //Journal
 Route::get('/create/workout',[WorkoutController::class,'create'])->name('workout.create');
 Route::post('/create/workout',[WorkoutController::class,'store'])->name('workout.store');
+Route::get('/workout',[WorkoutController::class,'index'])->name('workout.index');

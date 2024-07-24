@@ -17,6 +17,7 @@ class Workout extends Model
      */
     public $timestamps = false;
 
+
     protected $fillable = [
         'name',
         'exercise',
@@ -30,9 +31,16 @@ class Workout extends Model
         'user_id',
     ];
 
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+
+    public function getWorkoutForAuthUser($user) {
+        $workouts = Workout::query()->with('user')->where('user_id','=',$user)->get();
+        return $workouts;
     }
 
 
