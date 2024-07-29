@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use http\Client\Request;
+
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Http;
+
 
 class Exercises extends Command
 {
@@ -20,13 +20,13 @@ class Exercises extends Command
      *
      * @var string
      */
-    protected $description = 'Get exercsises from ninjas api';
+    protected $description = 'Get exercises from ninjas api';
 
     /**
      * Execute the console command.
      */
-    public function handle(Request $request)
+    public function handle()
     {
-        $request = Http::get('')
+        $this->call('fetch-exercises');
     }
 }

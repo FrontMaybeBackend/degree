@@ -3,7 +3,6 @@
 namespace App\Http\Services;
 
 use App\Http\Requests\LoginRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class AuthService
