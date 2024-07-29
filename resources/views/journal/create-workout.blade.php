@@ -17,8 +17,10 @@
                 <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="mb-3">
+                <div id="inputFields">
                 <label for="exercise">Ćwiczenia</label>
                 <input type="text" class="form-control" id="exercise" name="exercise">
+                </div>
             </div>
             <div class="mb-3">
                 <label for="sets">Serie</label>
@@ -52,6 +54,18 @@
             <button type="submit" class="btn btn-primary">Dodaj plan</button>
         </form>
     </div>
+    <button class="add-field" onclick="addFn()">Add more</button>
 
+    <script>
+        function addFn() {
+            const label = document.getElementById("inputFields");
+            label.innerHTML += `
+        <div>
+         <input type="text" class="form-control" id="exercise" name="exercise">
+         <input type="text" class="form-control" id="exercise" name="exercise">
+        </div>
+      `;
+        }
+    </script>
 
 @endsection
