@@ -4,7 +4,7 @@ namespace App\Http\Services;
 
 use App\Models\Exercise;
 
-class BicepsService
+class ApiService
 {
 
     public function fetchAllExercises()

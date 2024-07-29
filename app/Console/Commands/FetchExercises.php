@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Services\BicepsService;
+use App\Http\Services\ApiService;
 use Illuminate\Console\Command;
 
 class FetchExercises extends Command
@@ -23,7 +23,7 @@ class FetchExercises extends Command
 
     protected $getExercises;
 
-    public function __construct(BicepsService $getExercises)
+    public function __construct(ApiService $getExercises)
     {
         parent::__construct();
         $this->getExercises = $getExercises;
