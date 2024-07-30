@@ -16,11 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('type');
-            $table->string('muscle');
             $table->string('equipment');
             $table->string('difficulty');
             $table->text('instructions');
-
+            $table->foreignId('muscle_id')->constrained();
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('exercsises');
+        Schema::dropIfExists('exercises');
     }
 };

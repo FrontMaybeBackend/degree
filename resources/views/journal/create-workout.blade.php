@@ -18,8 +18,8 @@
             </div>
             <div class="mb-3">
                 <div id="inputFields">
-                <label for="exercise">Ćwiczenia</label>
-                <input type="text" class="form-control" id="exercise" name="exercise">
+                    <label for="exercise">Ćwiczenia</label>
+                    <input type="text" class="form-control" id="exercise" name="exercise">
                 </div>
             </div>
             <div class="mb-3">
@@ -32,7 +32,7 @@
             </div>
             <div class="mb-3">
                 <label for="pause">Pauza</label>
-                <input type="text"  class="form-control" id="pause" name="pause">
+                <input type="text" class="form-control" id="pause" name="pause">
             </div>
             <div class="mb-3">
                 <label for="break">Przerwa</label>
@@ -44,7 +44,7 @@
             </div>
             <div class="mb-3">
                 <label for="tempo">Tempo</label>
-                <input type="text"  maxlength="4"  class="form-control" id="tempo" name="tempo">
+                <input type="text" maxlength="4" class="form-control" id="tempo" name="tempo">
             </div>
             <div class="mb-3">
                 <label for="day">Dni</label>
@@ -54,18 +54,38 @@
             <button type="submit" class="btn btn-primary">Dodaj plan</button>
         </form>
     </div>
-    <button class="add-field" onclick="addFn()">Add more</button>
 
-    <script>
-        function addFn() {
-            const label = document.getElementById("inputFields");
-            label.innerHTML += `
-        <div>
-         <input type="text" class="form-control" id="exercise" name="exercise">
-         <input type="text" class="form-control" id="exercise" name="exercise">
-        </div>
-      `;
-        }
-    </script>
+    <label for="name">Nazwa planu</label>
+    <input type="text" class="form-control" id="name" name="name">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ćwiczenia</th>
+            <th scope="col">Powtórzenia</th>
+            <th scope="col">Pauza</th>
+            <th scope="col">Przerwa</th>
+            <th scope="col">RPE</th>
+            <th scope="col">Tempo</th>
+            <th scope="col">Dni</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <th scope="row">1</th>
+            <td>
+                <select id="exercise">Ćwiczenia
+                    @foreach($exercises as $exercise)
+                        <option value="{{$exercise->name}}"> {{ $exercise->name }}</option>
+                    @endforeach
+                </select>
+            </td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        </tbody>
+    </table>
 
 @endsection

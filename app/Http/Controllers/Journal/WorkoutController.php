@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Journal;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Exercise;
 use App\Models\Workout;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 
 class WorkoutController extends Controller
@@ -19,7 +18,7 @@ class WorkoutController extends Controller
         $user = auth()->user()->getAuthIdentifier();
         return view('journal.index-workout', [
             'workout' => $workout->getWorkoutForAuthUser($user),
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
@@ -27,10 +26,14 @@ class WorkoutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Exercise $exercise)
     {
         $user = auth()->user();
-        return view('journal/create-workout',['user'=> $user]);
+        return view('journal/create-workout',
+            [
+                'user' => $user,
+                'exercises' => $exercise->getExerciseForMuscle(),
+            ]);
     }
 
     /**
