@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Journal;
 
 use App\Http\Controllers\Controller;
 use App\Models\Exercise;
+use App\Models\Muscle;
 use App\Models\Workout;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 
@@ -26,13 +28,12 @@ class WorkoutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Exercise $exercise)
+    public function create()
     {
         $user = auth()->user();
         return view('journal/create-workout',
             [
                 'user' => $user,
-                'exercises' => $exercise->getExerciseForMuscle(),
             ]);
     }
 
@@ -45,6 +46,14 @@ class WorkoutController extends Controller
         $workout->save();
 
     }
+
+    public function getExercisesForMuscle($muscle): JsonResponse
+    {
+        $exercises = new Exercise();
+        $muscles = $exercises->getExerciseForMuscle($muscle);
+        return response()->json($muscles);
+    }
+
 
     /**
      * Display the specified resource.

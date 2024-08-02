@@ -33,3 +33,6 @@ Route::put('/profile/{user}',[ProfileController::class,'update'])->name('profile
 Route::get('/create/workout',[WorkoutController::class,'create'])->name('workout.create');
 Route::post('/create/workout',[WorkoutController::class,'store'])->name('workout.store');
 Route::get('/workout',[WorkoutController::class,'index'])->name('workout.index');
+
+//Fetch exercises
+Route::get('/create/workout/{muscle}',[WorkoutController::class,'getExercisesForMuscle'])->name('workout.get');

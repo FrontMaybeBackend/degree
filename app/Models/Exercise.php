@@ -12,7 +12,6 @@ class Exercise extends Model
 {
     use HasFactory;
 
-    protected array $muscle;
     protected $fillable = [
         'name',
         'type',
@@ -27,10 +26,10 @@ class Exercise extends Model
         return $this->belongsTo(Muscle::class);
     }
 
-    public function getExerciseForMuscle(): Collection {
-
-        $exercises = Exercise::query()->whereHas('muscle', function($query) {
-            $query->where('muscle', 'biceps');
+    public function getExerciseForMuscle($muscle): Collection {
+        //Get all exercises for target muscle
+        $exercises = Exercise::query()->whereHas('muscle',  function($query) use ($muscle) {
+            $query->where('muscle', $muscle);
         })->get();
         return $exercises;
     }
