@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+
+  php:
+    container_name: degree
+    build:
+        context:  .
+    ports:
+        -  8000:8000
+    volumes:
+         - ./:/var/www
+    networks:
+        - degree-network
+
+
+  database:
+    container_name: degree-db
+    image: mariadb:latest
+    ports:
+      - ${DB_PORT}:3306
+    environment:
+      - MARIADB_DATABASE=${DB_DATABASE}
+      - MARIADB_PASSWORD=${DB_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - degree-volume:/var/lib/mariadb
+    networks:
+      - degree-network
+
+
+
+
+volumes:
+  degree-volume:
+
+networks:
+  degree-network:
+    driver: bridge
+
+
