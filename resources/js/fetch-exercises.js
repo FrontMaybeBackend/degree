@@ -17,13 +17,26 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (exerciseList) {
                         exerciseList.innerHTML = "";
                         data.forEach(function (exercise) {
-                            var div = document.createElement('div');
+                            var div = document.createElement('table');
+                            div.setAttribute('border',3);
+                            div.setAttribute('width','100%');
                             div.classList.add('exercise-item');
                             div.innerHTML = `
-                                    <h3>${exercise.name}</h3>
-                                    <p>${exercise.type}<p>
-                                    <p>${exercise.equipment}<p>
-                                    <p>${exercise.difficulty}<p>
+                                     <tr>
+                <th>Ćwiczenia</th>
+                <th>Typ</th>
+                <th>Wyposażenie</th>
+                <th>Poziom trudności</th>
+                <th>Dodaj do Planu</th>
+            </tr>
+            <tr>
+                <td>${exercise.name}</td>
+                <td>${exercise.type}</td>
+                <td>${exercise.equipment}</td>
+                <td>${exercise.difficulty}</td>
+                <td> <button>+</button></td>
+            </tr>
+
                                     `
                             exerciseList.appendChild(div);
                         })

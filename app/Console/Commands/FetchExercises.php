@@ -19,7 +19,7 @@ class FetchExercises extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Get exercises from external Api';
 
     protected $getExercises;
 

@@ -31,7 +31,7 @@ class WorkoutController extends Controller
     public function create()
     {
         $user = auth()->user();
-        return view('journal/create-workout',
+        return view('journal.create-workout',
             [
                 'user' => $user,
             ]);

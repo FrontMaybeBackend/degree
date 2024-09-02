@@ -29,7 +29,7 @@
     </menu>
 
 
-    <div id="exercise-list" class="exercises w-50 h-100">
+    <table id="exercise-list" class="exercises w-50 h-100">
 
-    </div>
+    </table>
 @endsection
