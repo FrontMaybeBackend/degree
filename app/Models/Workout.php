@@ -18,6 +18,8 @@ class Workout extends Model
     public $timestamps = false;
 
 
+
+
     protected $fillable = [
         'name',
         'exercise',
@@ -29,6 +31,10 @@ class Workout extends Model
         'tempo',
         'day',
         'user_id',
+    ];
+
+    protected $casts = [
+        'exercise' => 'array'
     ];
 
 

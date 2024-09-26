@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('workouts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('exercise')->unique();
+            $table->json('exercise')->unique();
             $table->integer('sets');
-            $table->integer('reps');
+           $table->integer('reps');
             $table->integer('pause');
-            $table->char('break');
+           $table->char('break');
             $table->integer('rpe');
             $table->char('tempo');
             $table->string('day');
